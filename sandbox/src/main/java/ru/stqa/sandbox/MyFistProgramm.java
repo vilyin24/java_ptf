@@ -1,3 +1,5 @@
+package ru.stqa.sandbox;
+
 public class MyFistProgramm {
 
   public static void main(String[] args) {
