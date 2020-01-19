@@ -1,3 +1,10 @@
 apply plugin: 'java'
 apply plugin: 'application'
-mainClassName = "MyFistProgramm"
+mainClassName = "ru.stqa.sandbox.MyFistProgramm"
+
+repositories{
+    mavenCentral()
+}
+dependencies {
+    implementation 'org.testng:testng:7.1.0'
+}

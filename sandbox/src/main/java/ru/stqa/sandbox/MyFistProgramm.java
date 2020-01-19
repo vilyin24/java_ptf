@@ -5,7 +5,7 @@ public class MyFistProgramm {
     public static void main(String[] args) {
         hello("e332");
         double l = 6;
-        Square s = new Square();
+        Square s = new Square(4);
         Rectangle r = new Rectangle();
         System.out.println(areea(s));
         System.out.println(areea(r));
