@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/java_ptf.iml" filepath="$PROJECT_DIR$/.idea/java_ptf.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/sandbox.iml" filepath="$PROJECT_DIR$/.idea/sandbox.iml" />
     </modules>
   </component>
 </project>
