@@ -1,4 +1,4 @@
-package com.example.tests;
+package com.example.tests.modyl2;
 
 public class AccounData {
     private final String fistname;

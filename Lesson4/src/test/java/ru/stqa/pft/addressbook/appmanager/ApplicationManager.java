@@ -1,19 +1,17 @@
-package ru.stqa.pft.addressbook;
+package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import ru.stqa.pft.addressbook.model.CroupDate;
 
 import java.util.concurrent.TimeUnit;
 
-public class Testbase {
+public class ApplicationManager {
     FirefoxDriver wd;
 
-    @BeforeMethod(alwaysRun = true)
-    public void setUp() throws Exception {
+    public void init() {
         wd = new FirefoxDriver();
         wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook/group.php");
@@ -31,16 +29,16 @@ public class Testbase {
         wd.findElement(By.xpath("//input[@value='Login']")).click();
     }
 
-    protected void returnToGroupPage() {
+    public void returnToGroupPage() {
         wd.findElement(By.linkText("groups")).click();
         wd.findElement(By.linkText("Logout")).click();
     }
 
-    protected void sibmitGroupCreation() {
+    public void sibmitGroupCreation() {
         wd.findElement(By.name("submit")).click();
     }
 
-    protected void fillGroupForm(CroupDate croupDate) {
+    public void fillGroupForm(CroupDate croupDate) {
         wd.findElement(By.name("group_name")).click();
         wd.findElement(By.name("group_name")).clear();
         wd.findElement(By.name("group_name")).sendKeys(croupDate.getName());
@@ -52,16 +50,15 @@ public class Testbase {
         wd.findElement(By.name("group_footer")).sendKeys(croupDate.getFooter());
     }
 
-    protected void initGroupCreation() {
+    public void initGroupCreation() {
         wd.findElement(By.name("new")).click();
     }
 
-    protected void gotoGroupPage() {
+    public void gotoGroupPage() {
         wd.findElement(By.linkText("groups")).click();
     }
 
-    @AfterMethod(alwaysRun = true)
-    public void tearDown() throws Exception {
+    public void stop() {
         wd.quit();
     }
 
@@ -74,7 +71,7 @@ public class Testbase {
         }
     }
 
-    private boolean isAlertPresent() {
+    public boolean isAlertPresent() {
         try {
             wd.switchTo().alert();
             return true;
@@ -83,11 +80,11 @@ public class Testbase {
         }
     }
 
-    protected void deliteSelectedGroups() {
+    public void deliteSelectedGroups() {
       wd.findElement(By.name("delete")).click();
     }
 
-    protected void selectGroup() {
+    public void selectGroup() {
       wd.findElement(By.name("selected[]")).click();
     }
 }

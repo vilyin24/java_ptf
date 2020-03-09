@@ -1,19 +1,17 @@
-package com.example.tests;
+package com.example.tests.appmanager2;
 
+import com.example.tests.modyl2.AccounData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 
 import java.util.concurrent.TimeUnit;
 
-public class TestBase2 {
+public class ApplicationManager2 {
     private FirefoxDriver wd;
 
-    @BeforeMethod(alwaysRun = true)
-    public void setUp() throws Exception {
+    public void init2() {
         wd = new FirefoxDriver();
         wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook/group.php");
@@ -30,15 +28,15 @@ public class TestBase2 {
         wd.findElement(By.xpath("//input[@value='Login']")).click();
     }
 
-    protected void returnToAccountPage() {
+    public void returnToAccountPage() {
       wd.findElement(By.linkText("home")).click();;
     }
 
-    protected void sibmitAccountCreation() {
+    public void sibmitAccountCreation() {
       wd.findElement(By.xpath("(//input[@name='submit'])[2]")).click();
     }
 
-    protected void fillAccountForm(AccounData accounData) {
+    public void fillAccountForm(AccounData accounData) {
       wd.findElement(By.name("firstname")).click();
       wd.findElement(By.name("firstname")).clear();
       wd.findElement(By.name("firstname")).sendKeys(accounData.getFistname());
@@ -52,13 +50,13 @@ public class TestBase2 {
       wd.findElement(By.name("theform")).click();
     }
 
-    protected void initAccountCreation() {
+    public void initAccountCreation() {
       wd.findElement(By.linkText("add new")).click();
     }
 
-    @AfterMethod(alwaysRun = true)
-      public void tearDown() throws Exception {
-      }
+    public void stop2() {
+        wd.quit();
+    }
 
     private boolean isElementPresent(By by) {
           try {
@@ -69,7 +67,7 @@ public class TestBase2 {
           }
       }
 
-    private boolean isAlertPresent() {
+    public static boolean isAlertPresent(FirefoxDriver wd) {
           try {
               wd.switchTo().alert();
               return true;
@@ -77,5 +75,4 @@ public class TestBase2 {
               return false;
           }
       }
-    }
-
+}
