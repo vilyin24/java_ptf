@@ -47,7 +47,7 @@ public class GroupCreationTests {
         wd.findElement(By.name("submit")).click();
     }
 
-    private void fillGr oupForm(CroupDate croupDate) {
+    private void fillGroupForm(CroupDate croupDate) {
         wd.findElement(By.name("group_name")).click();
         wd.findElement(By.name("group_name")).clear();
         wd.findElement(By.name("group_name")).sendKeys(croupDate.getName());
