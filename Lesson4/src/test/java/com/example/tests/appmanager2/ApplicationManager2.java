@@ -26,18 +26,6 @@ public class ApplicationManager2 {
         wd.quit();
     }
 
-
-
-
-    public static boolean isAlertPresent(FirefoxDriver wd) {
-          try {
-              wd.switchTo().alert();
-              return true;
-          } catch (NoAlertPresentException e) {
-              return false;
-          }
-      }
-
     public GroupHelper2 getGroupHelper2() {
         return groupHelper2;
     }
