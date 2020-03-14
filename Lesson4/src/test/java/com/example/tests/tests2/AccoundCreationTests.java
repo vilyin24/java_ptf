@@ -8,10 +8,10 @@ public class AccoundCreationTests extends TestBase2 {
     @Test
     public void testAccaunCreation() throws Exception {
 
-      app2.initAccountCreation();
-      app2.fillAccountForm(new AccounData("1", "2", "3"));
-      app2.sibmitAccountCreation();
-      app2.returnToAccountPage();
+      app2.getGroupHelper2().initAccountCreation();
+      app2.getGroupHelper2().fillAccountForm(new AccounData("1", "2", "3"));
+      app2.getGroupHelper2().sibmitAccountCreation();
+      app2.getGroupHelper2().returnToAccountPage();
     }
 
 }
