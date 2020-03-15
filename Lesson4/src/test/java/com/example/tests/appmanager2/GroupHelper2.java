@@ -28,4 +28,26 @@ public class GroupHelper2 extends HelperBase2 {
     public void initAccountCreation() {
         click(By.linkText("add new"));
     }
+    public void selectAccount() {
+        click(By.name("selected[]"));
+    }
+
+    public void deliteTab() {
+        click(By.xpath("//input[@value='Delete']"));
+    }
+    public void closedeliteTab() {
+        wd.switchTo().alert().accept();
+    }
+
+    public void tabToEdit() {
+        click((By.xpath("//img[@alt='Edit']")));
+    }
+
+    public void tabToUpdate() {
+        click(By.xpath("(//input[@name='update'])[2]"));
+
+    }
+
 }
+
+
