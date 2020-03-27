@@ -1,5 +1,6 @@
 package ru.stqa.pft.addressbook.appmanager;
 
+import com.example.tests.modyl2.AccounData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -44,5 +45,39 @@ public class GroupHelper extends HelperBase {
 
     public void sibmitGroupModification() {
         click(By.name("update"));
+    }
+
+    public void returnToAccountPage() {
+        click(By.linkText("home"));
+        ;
+    }
+
+    public void sibmitAccountCreation() {
+        click(By.xpath("(//input[@name='submit'])[2]"));
+    }
+
+
+    public void initAccountCreation() {
+        click(By.linkText("add new"));
+    }
+
+    public void selectAccount() {
+        click(By.name("selected[]"));
+    }
+
+    public void deliteTab() {
+        click(By.xpath("//input[@value='Delete']"));
+    }
+
+    public void closedeliteTab() {
+        wd.switchTo().alert().accept();
+    }
+
+    public void tabToEdit() {
+        click((By.xpath("//img[@alt='Edit']")));
+    }
+
+    public void tabToUpdate() {
+        click(By.xpath("(//input[@name='update'])[2]"));
     }
 }

@@ -13,10 +13,10 @@ public class TestBase2 {
         app2.init2();
     }
 
- //   @AfterMethod(alwaysRun = true)
- //     public void tearDown() throws Exception {
- //       app2.stop2();
-  //  }
+  @AfterMethod(alwaysRun = true)
+    public void tearDown() throws Exception {
+      app2.stop2();
+    }
 
 }
 

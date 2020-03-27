@@ -2,6 +2,7 @@ package com.example.tests.appmanager2;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class HelperBase2 {
@@ -25,6 +26,15 @@ public class HelperBase2 {
             wd.switchTo().alert();
             return true;
         } catch (NoAlertPresentException e) {
+            return false;
+        }
+    }
+
+    protected boolean isElementPresent(By locator2) {
+        try {
+            wd.findElement(locator2);
+            return  true;
+        } catch(NoSuchElementException ex) {
             return false;
         }
     }

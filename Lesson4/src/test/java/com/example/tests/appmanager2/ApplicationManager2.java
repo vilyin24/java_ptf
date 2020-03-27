@@ -13,7 +13,7 @@ public class ApplicationManager2 {
     private SessionHelper2 sessionHelper2;
     public void init2() {
         wd = new FirefoxDriver();
-        wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook/group.php");
         groupHelper2 = new GroupHelper2(wd);
         sessionHelper2 = new SessionHelper2(wd);
