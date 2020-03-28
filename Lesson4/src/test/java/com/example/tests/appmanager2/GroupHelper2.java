@@ -14,8 +14,10 @@ public class GroupHelper2 extends HelperBase2 {
     }
 
     public void returnToAccountPage() {
+        if (isElementPresent(By.id("maintable"))){
+            return;
+        }
         click(By.linkText("home"));
-        ;
     }
 
     public void sibmitAccountCreation() {
