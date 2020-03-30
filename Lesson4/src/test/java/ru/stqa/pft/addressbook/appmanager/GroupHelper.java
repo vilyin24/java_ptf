@@ -80,4 +80,15 @@ public class GroupHelper extends HelperBase {
     public void tabToUpdate() {
         click(By.xpath("(//input[@name='update'])[2]"));
     }
+
+    public void createGroup(CroupDate group) {
+        initGroupCreation();
+        fillGroupForm(group);
+        sibmitGroupCreation();
+        returnToGroupPage();
+    }
+
+    public boolean isThereAGroup() {
+       return isElementPresent(By.name("selected[]"));
+    }
 }

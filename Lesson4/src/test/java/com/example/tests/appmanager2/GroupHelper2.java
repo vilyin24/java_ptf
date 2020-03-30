@@ -59,6 +59,16 @@ public class GroupHelper2 extends HelperBase2 {
 
     }
 
+    public void createContact(AccounData contact, boolean b) {
+        initAccountCreation();
+        fillAccountForm(new AccounData("43434343", "34344343", "777","first1"),true);
+        sibmitAccountCreation();
+        returnToAccountPage();
+    }
+
+    public boolean isThereAContact() {
+    return isElementPresent(By.name("selected[]"));
+    }
 }
 
 
