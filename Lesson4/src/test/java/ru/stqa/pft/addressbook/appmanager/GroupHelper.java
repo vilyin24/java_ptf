@@ -3,8 +3,12 @@ package ru.stqa.pft.addressbook.appmanager;
 import com.example.tests.modyl2.AccounData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.stqa.pft.addressbook.model.CroupDate;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GroupHelper extends HelperBase {
 
@@ -94,4 +98,15 @@ public class GroupHelper extends HelperBase {
         public int getGroupCount () {
            return wd.findElements(By.name("selected[]")).size();
         }
+
+    public List<CroupDate> getGroupList() {
+        List<CroupDate> groups = new ArrayList<CroupDate>();
+        List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
+        for(WebElement element : elements){
+            String name = element.getText();
+            CroupDate group = new CroupDate(name,null,null);
+            groups.add(group);
+        }
+        return groups;
     }
+}

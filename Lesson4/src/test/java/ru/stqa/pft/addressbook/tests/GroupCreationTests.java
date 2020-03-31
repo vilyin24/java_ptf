@@ -13,9 +13,9 @@ public class GroupCreationTests extends Testbase {
     @Test
     public void testGroupCreation() throws Exception {
         app.getNavigationHelper().gotoGroupPage();
-        int before = app.getGroupHelper().getGroupCount();
+        List<CroupDate> before = app.getGroupHelper().getGroupList();
         app.getGroupHelper().createGroup(new CroupDate("first1", "2", "3224234"));
-       int after = app.getGroupHelper().getGroupCount();
-        Assert.assertEquals(after, before + 1);
+        List<CroupDate> after = app.getGroupHelper().getGroupList();
+        Assert.assertEquals(after.size(), before.size() + 1 );
     }
 }
