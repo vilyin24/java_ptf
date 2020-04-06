@@ -1,5 +1,7 @@
 package com.example.tests.modyl2;
 
+import java.util.Objects;
+
 public class AccounData {
     private final String fistname;
     private final String midlename2;
@@ -27,5 +29,28 @@ public class AccounData {
 
     public String getGroup() {
         return group;
+    }
+
+    @Override
+    public String toString() {
+        return "AccounData{" +
+                "lastname='" + lastname + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        AccounData that = (AccounData) o;
+        return Objects.equals(fistname, that.fistname) &&
+                Objects.equals(lastname, that.lastname);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fistname, lastname);
     }
 }
