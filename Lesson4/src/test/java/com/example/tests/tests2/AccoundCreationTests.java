@@ -13,7 +13,7 @@ public class AccoundCreationTests extends TestBase2 {
         app2.getGroupHelper2().returnToAccountPage();
         List<AccounData> before = app2.getGroupHelper2().getAccountList();
 
-     app2.getGroupHelper2().createContact(new AccounData("1", "2", "3",null),false) ;
+     app2.getGroupHelper2().createContact(new AccounData("1", "2", "3","test1"),false) ;
         List<AccounData> after = app2.getGroupHelper2().getAccountList();
 
         Assert.assertEquals(after.size() , before.size() + 1 );

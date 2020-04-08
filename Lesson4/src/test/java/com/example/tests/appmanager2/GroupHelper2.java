@@ -82,8 +82,9 @@ public class GroupHelper2 extends HelperBase2 {
         List <AccounData> accounds =new ArrayList<AccounData>();
         List <WebElement> elements = wd.findElements((By.xpath("//tbody//*[@type='checkbox']")));
         for (WebElement element : elements){
-            String name = element.getTagName();
-            AccounData account = new AccounData("1","2","3",null);
+            String name = element.getText();
+            String id = element.findElement(By.xpath("//tbody//*[@type='checkbox']")).getAttribute("value");
+            AccounData account = new AccounData(id,"1","2","3",null);
             accounds.add(account);
         }
         return accounds;
